@@ -15,11 +15,13 @@ import pandas as pd
 #lista = lista.append(nowy)
 
 #lista = pd.concat([nowy,lista])
-def listappend():
-    lista  = pd.read_csv('lista.csv')
 
-    lista = lista.append({'imie':name,'pass':111111}, ignore_index=True)
+lista  = pd.read_csv('lista.csv')
+def reading():
+    #lista = pd.read_csv('lista.csv')
+    read_name = lista.imie[lista.id.idxmax]
+    read_id = lista.id[lista.id.idxmax]
+    read_password = lista.password[lista.id.idxmax]
+    return print('Dodano osobe {} z ID {} i hasłem "{}"'.format(read_name, read_id,read_password))
 
-    lista.to_csv('lista.csv', index_label='id', index=True, columns = ['imie','pass'])
-
-def addname():
+reading()
